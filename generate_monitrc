@@ -77,7 +77,7 @@ set eventqueue
 ## Though, if safety is a concern we recommend instead using https when
 ## communicating with M/Monit and send credentials encrypted.
 
-set mmonit http://monit:$MMONIT_PASSWORD@$MMONIT_IP:8080/collector
+set mmonit https://monit:$MMONIT_PASSWORD@mmonit.pcdsimplicity.com/collector
     # and register without credentials     # Don't register credentials
 
 ## Monit by default uses the following format for alerts if the the mail-format
@@ -122,6 +122,9 @@ set httpd port 2812 and
     allow localhost        # allow localhost to connect to the server and
     allow $MMONIT_IP
     allow monit:'$GENERATED_PASSWORD'
+    ssl enable
+    pemfile /etc/monit/monit.pem
+    allowselfcertification
     #allow admin:monit      # require user 'admin' with password 'monit'
     #allow @monit           # allow users of group 'monit' to connect (rw)
     #allow @users readonly  # allow users of group 'users' to connect readonly
