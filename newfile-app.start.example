@@ -1,0 +1,5 @@
+#!/bin/bash
+
+export PATH=~/.rbenv/shims:~/.rbenv/bin:$PATH
+cd /var/www/apps/<app>/current/
+exec env RAILS_ENV=production bundle exec lib/daemons/newfile_ctl start

@@ -1,0 +1,9 @@
+check process <app>_newfile with pidfile /var/www/apps/<app>/shared/log/newfile.rb.pid
+  group ftp
+  start program = "<monit_config_dir>/newfile-<app>.start"
+    as uid developer and gid developer with timeout 60 seconds
+  stop program = "<monit_config_dir>/newfile-<app>.stop"
+    as uid developer and gid developer with timeout 60 seconds
+  #if mem is greater than 175.0 MB for 1 cycles then restart
+  #if cpu is greater than 22% for 2 cycles then alert
+  #if cpu is greater than 25% for 1 cycles then restart

@@ -1,0 +1,11 @@
+#!/bin/bash
+
+source monitrc.env
+
+read -p "Enter app name: " APP
+
+cat newfile-app.conf.example | sed -e "s/<app>/$APP/g" -e "s|<monit_config_dir>|$MONIT_CONFIG_DIR|g" > $MONIT_CONFIG_DIR/newfile-$APP.conf
+cat newfile-app.start.example | sed -e "s/<app>/$APP/g" -e "s|<monit_config_dir>|$MONIT_CONFIG_DIR|g" > $MONIT_CONFIG_DIR/newfile-$APP.start
+cat newfile-app.stop.example | sed -e "s/<app>/$APP/g" -e "s|<monit_config_dir>|$MONIT_CONFIG_DIR|g" > $MONIT_CONFIG_DIR/newfile-$APP.stop
+
+chmod +x $MONIT_CONFIG_DIR/newfile-$APP.st*
