@@ -2,4 +2,4 @@
 
 export PATH=~/.rbenv/shims:~/.rbenv/bin:$PATH
 cd /var/www/apps/<app>/current/
-exec env RAILS_ENV=production script/delayed_job start
+exec env RAILS_ENV=production bundle exec bin/delayed_job start
