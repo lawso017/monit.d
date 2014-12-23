@@ -1,5 +1,3 @@
 #!/bin/bash
 
-export PATH=~/.rbenv/shims:~/.rbenv/bin:$PATH
-cd /var/www/apps/<app>/current/
-exec env RAILS_ENV=production bundle exec bin/delayed_job stop
+cd /var/www/apps/dp/current && ( PATH=~/.rbenv/shims:~/.rbenv/bin:$PATH RAILS_ENV=production /usr/bin/env bundle exec bin/delayed_job stop  )
