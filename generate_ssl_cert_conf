@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SERVICENET_IP=$(ifconfig etho | grep "inet addr" | awk -F: '{print $2}' | awk '{print $1}')
+SERVICENET_IP=$(ifconfig eth0 | grep "inet addr" | awk -F: '{print $2}' | awk '{print $1}')
 
 cat <<END
 # create RSA certs - Server
