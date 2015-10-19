@@ -77,7 +77,7 @@ set eventqueue
 ## Though, if safety is a concern we recommend instead using https when
 ## communicating with M/Monit and send credentials encrypted.
 
-set mmonit https://monit:$MMONIT_PASSWORD@mmonit.pcdsimplicity.com/collector
+set mmonit https://monit:$MMONIT_PASSWORD@umonit.pcdsimplicity.com/collector
     # and register without credentials     # Don't register credentials
 
 ## Monit by default uses the following format for alerts if the the mail-format
