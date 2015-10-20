@@ -1,17 +1,8 @@
-check process unicorn_<app> with pidfile /var/www/apps/<app>/shared/pids/unicorn.pid
+check process unicorn_<app> with pidfile /var/www/apps/<app>/shared/tmp/pids/unicorn.pid
   group app
   start program = "<monit_config_dir>/unicorn-<app>.start"
-    as uid <app> and gid <app>
+    as uid developer and gid developer
   stop program = "<monit_config_dir>/unicorn-<app>.stop"
-    as uid <app> and gid <app>
+    as uid developer and gid developer
   if failed unixsocket /var/www/apps/<app>/shared/sockets/unicorn.sock
       protocol HTTP request "/?status" for 5 cycles then restart
-
-check process unicorn_<app>_0 with pidfile /var/www/apps/<app>/shared/pids/unicorn.0.pid
-  group app
-  start program = "/bin/true"
-    as uid <app> and gid <app>
-  stop program = "/bin/env CHILD_ID=0 <monit_config_dir>/unicorn-<app>.stop"
-    as uid <app> and gid <app>
-  if mem is greater than 325.0 MB then restart
-
