@@ -4,5 +4,5 @@ check process unicorn_<app> with pidfile /var/www/apps/<app>/shared/tmp/pids/uni
     as uid developer and gid developer
   stop program = "<monit_config_dir>/unicorn-<app>.stop"
     as uid developer and gid developer
-  if failed unixsocket /var/www/apps/<app>/shared/sockets/unicorn.sock
+  if failed unixsocket /var/www/apps/<app>/shared/tmp/sockets/unicorn.sock
       protocol HTTP request "/?status" for 5 cycles then restart

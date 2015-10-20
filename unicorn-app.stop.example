@@ -4,8 +4,8 @@ export PATH=~/.rbenv/shims:~/.rbenv/bin:$PATH
 
 if [[ $CHILD_ID ]]; then
   echo "Killing unicorn child process"
-  kill -3 `cat /var/www/apps/<app>/shared/pids/unicorn.$CHILD_ID.pid`
+  kill -3 `cat /var/www/apps/<app>/shared/tmp/pids/unicorn.$CHILD_ID.pid`
 else
   echo "Killing unicorn master process"
-  kill `cat /var/www/apps/<app>/shared/pids/unicorn.pid`
+  kill `cat /var/www/apps/<app>/shared/tmp/pids/unicorn.pid`
 fi

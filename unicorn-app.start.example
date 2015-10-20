@@ -1,4 +1,8 @@
 #!/bin/bash
 
+# Cap2/Rails3
 export PATH=~/.rbenv/shims:~/.rbenv/bin:$PATH
 RUBY_GC_MALLOC_LIMIT=64000000 RUBY_GC_OLDMALLOC_LIMIT=64000000 RUBY_GC_HEAP_INIT_SLOTS=500000 RUBY_GC_HEAP_FREE_SLOTS=500000 RUBY_GC_HEAP_GROWTH_FACTOR=1.25 RUBY_GC_HEAP_GROWTH_MAX_SLOTS=300000 exec /var/www/apps/<app>/current/bin/unicorn -c /var/www/apps/<app>/current/config/unicorn.rb -E production -D /var/www/apps/<app>/current/config.ru
+
+# Cap3/Rails4
+# cd /var/www/apps/<app>/current && ( PATH=~/.rbenv/shims:~/.rbenv/bin:$PATH RAILS_ENV=production /usr/bin/env bundle exec unicorn -c /var/www/apps/<app>/current/config/unicorn.rb -E deployment -D  )
